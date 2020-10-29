@@ -2,11 +2,11 @@
   "name": "notes-keeper",
   "provider": "SAP SE",
   "description": "Keep your notes organized and at hand anytime.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "icon": "https://www.pngkey.com/png/detail/20-201537_notes-clipart-posted-note-post-its-icon-png.png",
   "useShellSDK": true,
   "dockerRegistry": "beatmeiersap",
-  "helmChartVersion": "1.0.0",
+  "helmChartVersion": "1.0.1",
   "parameters": [],
   "outletPositions": []
 }
