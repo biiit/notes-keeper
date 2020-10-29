@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Notes Keeper</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/4.1.0/system.min.js"
+            integrity="sha256-i+j3ZmMaI9nPuzasKbNrT3evNnUewPBf5p9UEJdr2zA=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="info"></div>
+    <div id="notesKeeper" style="display:none;">
+        <form>
+            <textarea name="formNoteText" id="formNoteText" cols="25" rows="4" maxlength="300"></textarea>
+            <select name="formColor" id="formColor">
+                <option value="none">Select color</option>
+                <option value="red">Red</option>
+                <option value="green">Green</option>
+                <option value="blue">Blue</option>
+                <option value="yellow">Yellow</option>
+            </select>
+            <button id="formAddButton">Add note</button>
+        </form>
+
+        <div id="notes"></div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+      const updateUI = text => document.querySelectorAll('#info')[0].innerText = text;
+      const finishedLoading = () => {
+        document.getElementById('info').style.display = 'none';
+        document.getElementById('notesKeeper').style.display = 'block';
+      };
+
+      async function main() {
+        updateUI('loading ...');
+
+        // get latest sdk
+        const { ShellSdk, SHELL_EVENTS } = await System.import('https://unpkg.com/fsm-shell').then(m => m.default);
+
+        console.log('using ShellSdk version', ShellSdk.VERSION);
+
+        if (!ShellSdk.isInsideShell()) {
+          throw new Error('unable to reach shell eventAPI');
+        }
+
+        const shellSdk = ShellSdk.init(parent, '*');
+
+        // get context
+        shellSdk.emit(SHELL_EVENTS.Version1.REQUIRE_CONTEXT, { clientIdentifier: 'example-plugin' });
+        shellSdk.on(SHELL_EVENTS.Version1.REQUIRE_CONTEXT, event => {
+          const {
+            account,
+            accountId,
+            company,
+            companyId,
+            user,
+            userId,
+            selectedLocale
+          } = JSON.parse(event);
+          finishedLoading();
+        });
+      }
+
+      main().catch(e => (console.error(e), finishedLoading()));
+    </script>
+</body>
+</html>
