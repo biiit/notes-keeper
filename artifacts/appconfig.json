@@ -3,10 +3,10 @@
   "provider": "SAP SE",
   "description": "Keep your notes organized and at hand anytime.",
   "version": "1.0.1",
-  "icon": "https://www.pngkey.com/png/detail/20-201537_notes-clipart-posted-note-post-its-icon-png.png",
+  "icon": "https://raw.githubusercontent.com/agugger/agugger-extension/master/IconNote.png",
   "useShellSDK": true,
   "dockerRegistry": "beatmeiersap",
-  "helmChartVersion": "1.0.1",
+  "helmChartVersion": "1.0.2",
   "parameters": [],
   "outletPositions": []
 }
