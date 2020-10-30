@@ -2,7 +2,7 @@
   "name": "notes-keeper",
   "provider": "SAP SE",
   "description": "Keep your notes organized and at hand anytime.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "icon": "https://raw.githubusercontent.com/agugger/agugger-extension/master/IconNote.png",
   "useShellSDK": true,
   "dockerRegistry": "beatmeiersap",

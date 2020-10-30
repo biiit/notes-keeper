@@ -13,13 +13,13 @@ type: application
 
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
-version: 1.0.1
+version: 1.0.2
 
 # This is the version number of the application being deployed. This version number should be
 # incremented each time you make changes to the application.
-appVersion: "1.0.1"
+appVersion: "1.0.2"
 
 description: Keep your notes organized and at hand anytime.
 
 # A URL to an SVG or PNG image to be used as an icon
-icon: https://www.pngkey.com/png/detail/20-201537_notes-clipart-posted-note-post-its-icon-png.png
+icon: https://raw.githubusercontent.com/agugger/agugger-extension/master/IconNote.png
